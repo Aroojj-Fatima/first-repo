@@ -13,8 +13,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="static/vendor/bootstrap-4.0.0-dist/css/bootstrap.min.css">
-
+    
         <link href="/static/css/bootstrap.min.css"/>
         <link href="static/css/all.css" rel="stylesheet">
         <script src="static/js/jquery.min.js"></script>
@@ -23,49 +22,379 @@
         <style>
             .divs
             {
-                background-color: gray;
+                background-color: rgb(128,128,128,0.6);
+				padding-top:2vh;
+				padding-bottom:4vh;
+            }
+            .div1
+            {
+                background-color:rgb(255,255,255,0.8);
+                margin-top:4vh;
+				margin-left:3vw;
+				margin-right:3vw;
+				padding-bottom:4vh;
+            }
+			.div2
+            {
+                background-color:rgb(255,255,255,0.8);
+                margin-top:4vh;
+				margin-left:3vw;
+				margin-right:3vw;
+            }
+			.div3
+            {
+                background-color:rgb(255,255,255,0.8);
+                margin-top:4vh;
+				margin-left:3vw;
+				margin-right:3vw;
+				height:40vh;
+            }
+            OPTION {
+                color:blue;
+            }
+            .sel {
+                color:blue;
+            }
+
+            .place_holder {
+                color:blue;
+            }
+            .lable
+            {
+                margin-left:30% ;
+            }
+
+
+            .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+            }
+
+            /* Hide default HTML checkbox */
+            .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+            }
+
+            /* The slider */
+            .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+            }
+
+            .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+            }
+
+            input:checked + .slider {
+            background-color: #2196F3;
+            }
+
+            input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+            }
+
+            input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+            }
+
+            /* Rounded sliders */
+            .slider.round {
+            border-radius: 34px;
+            }
+
+            .slider.round:before {
+            border-radius: 50%;
             }
         </style>
         
     </head>
         
     <body>
-        <div class="row divs" sty>
-            <div class="col-md-4">
-                <form class="form">
-                    <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" id="name" class="form-control" name="std-name" placeholder="Enter Your Name"/>
+        <div class="divs">
+            <div  class ="div1">
+                <div class="row col-12">
+                        <div class="col-5 offset-1" style="margin:2rem 0rem 2rem 0rem">
+                            <form class="form">
+                                <div class="row col-12 mt-4">
+                                    <div class="col-6">
+                                        <label class="lable" >NAME:</label>
+                                    </div>
+                                    <div class="col-6">
+                                        <input class="w3-input w3-border place_holder" type="text" style="color:blue; width:14vw; height:6vh; border:none;" required name="Name">
+                                    </div>
+                                </div>
+            
+                                <div class="row col-12 mt-4">
+                                    <div class="col-6">
+                                        <label class="lable">JOB:</label>
+                                    </div>
+                                    <div class="col-6">
+            
+                                        <select id="job" class="form-control place_holder sel" name="job" onchange="selectRole()">
+                                            <OPTION hidden>JOB(s)</OPTION>
+                                            <OPTION> CATERING</OPTION> 
+                                            <OPTION> DRIVING</OPTION>
+                                            <OPTION> EDUCATION</OPTION>
+                                            <OPTION> WAREHOUSE</OPTION>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="row col-12 mt-4">
+                                    <div class="col-6">
+                                        <label class="lable">ROLE:</label>
+                                    </div>
+                                    <div class="col-6">
+            
+                                        <select  id="role" class="form-control place_holder sel" name="role">
+                                            <OPTION hidden>ROLE(s)</OPTION>
+                                            <OPTION value=“value1” id="option1"> </OPTION>
+                                            <OPTION value=“value2” id="option2"> </OPTION>
+                                            <OPTION value=“value3” id="option3"> </OPTION> 
+                                            <OPTION value=“value1” id="option4"> </OPTION>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row col-12 mt-4">
+                                    <div class="col-6">
+                                        <label class="lable">STATUS:</label>
+                                    </div>
+                                    <div class="col-6">
+
+                                        <select  id="status" class="form-control place_holder sel" name="status">
+                                            <OPTION hidden>ACTIVE,REGISTERED,ENROLLED</OPTION>
+                                            <OPTION value=“value1” > ACTIVE </OPTION>
+                                            <OPTION value=“value2” > REGISTERED </OPTION>
+                                            <OPTION value=“value3” > ENROLLED </OPTION>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row col-12 mt-4">
+                                    <div class="col-6">
+                                        <label class="lable">DAYS/NIGHTS:</label>
+                                    </div>
+                                    <div class="col-6">
+
+                                        <select  id="shift" class="form-control place_holder sel" name="shift">
+                                            <OPTION hidden>DAYS,NIGHTS,BOTH</OPTION>
+                                            <OPTION value=“value1” > DAYS </OPTION>
+                                            <OPTION value=“value2” > NIGHTS </OPTION>
+                                            <OPTION value=“value3” > BOTH </OPTION>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row col-12 mt-4">
+                                    <div class="col-6">
+                                        <label class="lable"class="lable">STATUS:</label>
+                                    </div>
+                                    <div class="col-6">
+
+                                        <select  id="type" class="form-control place_holder sel" name="type">
+                                            <OPTION hidden>TEMP,PREM,TTP</OPTION>
+                                            <OPTION value=“value1” > TEMP </OPTION>
+                                            <OPTION value=“value2” > PREM </OPTION>
+                                            <OPTION value=“value3” > TTP </OPTION>
+                                        </select>
+                                    </div>
+                                </div>
+                            
+                            </form>
+                        
                     </div>
-                    <div class="form-group">
-                        <label for="job">job</label>
-                        <select id="job" class="form-control" name="job" placeholder="JOB(s)">
-                            <OPTION value=“value1”> job 1
-                            <OPTION value=“value2” > job2
-                            <OPTION value=“value3”> job3
-                            <OPTION value=“value1” selected> job
+                    
+
+                    <div class="col-5 offset-1" style="margin:2rem 2rem 2rem 0.1rem">
+                            <form class="form">
+                                <div class="row col-12 mt-4">
+                                    <div class="col-6">
+                                        <label class="lable">JOB DESCRIPTION:</label>
+                                    </div>
+                                    <div class="col-6">
+                                        <input class="w3-input w3-border place_holder" type="text" 
+                                        style="color:blue; width:14vw; height:6vh; border:none;"  name="jobdesc" id="jobdesc">
+                                    </div>
+                                </div>
                                 
-                        </select>
+
+                                <div class="row col-12 mt-4">
+                                    <div class="col-6">
+                                        <label class="lable">KEYWORDS:</label>
+                                    </div>
+                                    <div class="col-6">
+                                        <input class="w3-input place_holder" type="text" 
+                                        style="color:blue; width:14vw; height:6vh; border:none;"  name="keywords" id="keywords">
+                                    </div>
+                                </div>
+                                <div class="row col-12 mt-4">
+                                   <div class="col-6">
+                                        <label class="lable" >MATCH ALL:</label>
+                                    </div>
+                                    <div class="col-6">
+                                        <label class="switch">
+                                            <input type="checkbox">
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+            
+                                <div class="row col-12 mt-4">
+                                    <div class="col-6">
+                                        <label class="lable">DISTANCE:</label>
+                                    </div>
+                                    <div class="col-6">
+            
+                                        <select id="job" class="form-control place_holder sel" name="distance">
+                                            <OPTION> 5 Miles</OPTION> 
+                                            <OPTION> 10 Miles</OPTION>
+                                            <OPTION> 15 Miles</OPTION>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="row col-12 mt-4">
+                                    <div class="col-6">
+                                        <label class="lable"></label>   
+                                    </div>
+                                    <div class="col-6">
+            
+                                        <select  id="role" class="form-control place_holder sel" name="asmsignment">
+                                            <OPTION> ASSIGNMENNT</OPTION> 
+                                            <OPTION> NOT ASSIGN</OPTION>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row col-12 mt-4">
+                                    <div class="col-6">
+                                        <label class="lable">OFFICE:</label>
+                                    </div>
+                                    <div class="col-6">
+
+                                        <select  id="status" class="form-control place_holder sel" name="status">
+                                            <OPTION hidden>OFFICE(s)</OPTION>
+                                            <OPTION value=“value1” > OFFICE 1 </OPTION>
+                                            <OPTION value=“value2” > OFFICE 2 </OPTION>
+                                            <OPTION value=“value3” > OFFICE 3 </OPTION>
+                                        </select>
+                                    </div>
+                                </div>
+                            
+                            </form>
+                         
                     </div>
-                    <div class="form-group">
-                        <label for="role">job</label>
-                        <select id="role" class="form-control" name="role" placeholder="JOB(s)">
-                            <OPTION value=“value1”> role 1
-                            <OPTION value=“value2” > role 2
-                            <OPTION value=“value3”> role 4
-                            <OPTION value=“value1” selected> role
-                                
-                        </select>
-                    </div>
-                    <!----div class="form-group">
-                        <button type="button" class="btn btn-success" onclick="addRow()" id="btn1">Add Row</button>
-                    </div>
-                    <div class="form-group">
-                        <button type="button" class="btn btn-default btn-danger" id="clrRcd" onclick="clearRecord()" >Clear Record</button>
-                    </div--->
-                </form>
+
+                </div>
             </div>
-            <div class="col-md-4"></div>
+            <br>
+
+            <div class="div2" style="padding-top:2vh;">
+                <span>
+                    <label class="w3-border lable" style="color: blue; margin-left: 5%; border-style:double; background-color: white; margin-top: 1%;
+                    " id="totalWorkers">TOTAL WORKERS:0</label>
+                    <button class="w3-button w3-section w3-right" style="color: white; background-color:mediumblue; margin-left:57vw;"
+                     onclick="clearSearch()">CLEAR SEARCH</button>
+                    <button class="w3-button w3-section w3-right" style="color: white; background-color:mediumblue; margin-left:1vw;" 
+                    onclick="doClearSearch()">SEARCH</button>
+                    
+                </span>
+               <br>
+               <br>
+
+            </div>
+            <br>
+            <div class="div3">
+                <br><br><br><br><br>
+            </div>
         </div>
     </body>
+
+    <script>
+
+        //var arr=[];
+        //var avgHeight;
+        var option1=document.getElementById("option1");
+        var option2=document.getElementById("option2");
+        var option3=document.getElementById("option3")
+        var option4=document.getElementById("option4")
+        //var td2;
+        function selectRole()
+        {
+            var job=document.getElementById("job").value;
+            //alert(job);
+            var role=document.getElementById("role");
+            //var height=document.getElementById("h").value;
+            if(job =="CATERING")
+            {
+                option1.innerHTML="CDP";
+                option2.innerHTML="CHEF";
+                option3.innerHTML="HEAD CHEF";
+                option4.innerHTML="SOUS CHEF";
+                /*role.innerHTML=job;
+                role.appendChild(option1);
+                role.appendChild(option2);
+                role.appendChild(option3);
+                role.appendChild(option4);
+                //trs.appendChild(td2);
+                //tab.appendChild(trs);   */
+            }
+
+            else if(job =="DRIVING")
+            {
+                option1.innerHTML="DRIVER";
+                option2.innerHTML="MECHANIC";
+                option3.innerHTML="CONDUCTOR";
+                option4.innerHTML="PASSENGER";
+                
+            }
+
+            else if(job =="EDUCATION")
+            {
+                option1.innerHTML="BEHAVIOR SPECIALIST";
+                option2.innerHTML="TEACHER";
+                option3.innerHTML="TEACHER ASSISTANT";
+                option4.innerHTML="TUTOR";
+                
+            }
+
+            else if(job =="WAREHOUSE")
+            {
+                option1.innerHTML="MACHINE OPERATOR";
+                option2.innerHTML="MANAGER";
+                option3.innerHTML="CLERK";
+                option4.innerHTML="MATERIAL HANDLLER";
+                
+            }
+
+        }
+        function doSearch()
+        {
+            alert('I"m in doSearch ' )
+        }
+    </script>
 </html>
