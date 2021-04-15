@@ -38,7 +38,7 @@
         <title>First Page</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="static/css/style.css">
+        <!--link rel="stylesheet" href="static/css/style.css"-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -50,9 +50,9 @@
         <script type="test/javascript" 
         src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
         <link href="/static/css/bootstrap.min.css"/>
-        <link href="static/css/all.css" rel="stylesheet">
+        <!--link href="static/css/all.css" rel="stylesheet">
         <script src="static/js/jquery.min.js"></script>
-        <!--script src="static/js/bootstrap.min.js"></script--->
+        <script src="static/js/bootstrap.min.js"></script--->
         
         <style>
             .divs
@@ -176,8 +176,8 @@
                                         <label class="lable" >NAME:</label>
                                     </div>
                                     <div class="col-6">
-                                        <input class="w3-input w3-border place_holder" type="text" s
-                                        tyle="color:blue; width:14vw; height:6vh; border:none;" required name="Name">
+                                        <input class="w3-input w3-border place_holder" type="text" id="name"
+                                        style="color:blue; width:14vw; height:6vh; border:none;" required name="Name">
                                     </div>
                                 </div>
             
@@ -207,11 +207,6 @@
                                     <div class="col-6">
             
                                         <select  id="role" class="form-control place_holder sel"  name="role">
-                                            <OPTION hidden>ROLE(s)</OPTION>
-                                            <!-- <OPTION value=“value1” id="option1"> </OPTION>
-                                            <OPTION value=“value2” id="option2"> </OPTION>
-                                            <OPTION value=“value3” id="option3"> </OPTION> 
-                                            <OPTION value=“value1” id="option4"> </OPTION> -->
                                         </select>
                                     </div>
                                 </div>
@@ -223,10 +218,10 @@
                                     <div class="col-6">
 
                                         <select  id="status" class="form-control place_holder sel" name="status">
-                                            <OPTION hidden>ACTIVE,REGISTERED,ENROLLED</OPTION>
-                                            <OPTION value=“value1” > ACTIVE </OPTION>
-                                            <OPTION value=“value2” > REGISTERED </OPTION>
-                                            <OPTION value=“value3” > ENROLLED </OPTION>
+                                            <OPTION hidden>ACTIVE,INACTIVE</OPTION>
+                                            <OPTION > Active </OPTION>
+                                            <OPTION > Inactive </OPTION>
+                                            
                                         </select>
                                     </div>
                                 </div>
@@ -239,24 +234,23 @@
 
                                         <select  id="shift" class="form-control place_holder sel" name="shift">
                                             <OPTION hidden>DAYS,NIGHTS,BOTH</OPTION>
-                                            <OPTION value=“value1” > DAYS </OPTION>
-                                            <OPTION value=“value2” > NIGHTS </OPTION>
-                                            <OPTION value=“value3” > BOTH </OPTION>
+                                            <OPTION> Day </OPTION>
+                                            <OPTION> Night </OPTION>
+                                            <OPTION> Both </OPTION>
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="row col-12 mt-4">
                                     <div class="col-6">
-                                        <label class="lable"class="lable">STATUS:</label>
+                                        <label class="lable"class="lable">TYPE:</label>
                                     </div>
                                     <div class="col-6">
 
                                         <select  id="type" class="form-control place_holder sel" name="type">
-                                            <OPTION hidden>TEMP,PREM,TTP</OPTION>
-                                            <OPTION value=“value1” > TEMP </OPTION>
-                                            <OPTION value=“value2” > PREM </OPTION>
-                                            <OPTION value=“value3” > TTP </OPTION>
+                                            <OPTION hidden>TEMP,PERM</OPTION>
+                                            <OPTION> Temp </OPTION>
+                                            <OPTION> Perm </OPTION>
                                         </select>
                                     </div>
                                 </div>
@@ -285,7 +279,7 @@
                                     </div>
                                     <div class="col-6">
                                         <input class="w3-input place_holder" type="text" 
-                                        style="color:blue; width:14vw; height:6vh; border:none;"  name="keywords" id="keywords">
+                                        style="color:blue; width:14vw; height:6vh; border:none;"  name="keywords" id="keyword">
                                     </div>
                                 </div>
                                 <div class="row col-12 mt-4">
@@ -306,7 +300,7 @@
                                     </div>
                                     <div class="col-6">
             
-                                        <select id="job" class="form-control place_holder sel" name="distance">
+                                        <select id="distance" class="form-control place_holder sel" name="distance">
                                             <OPTION> 5 Miles</OPTION> 
                                             <OPTION> 10 Miles</OPTION>
                                             <OPTION> 15 Miles</OPTION>
@@ -321,7 +315,7 @@
                                     </div>
                                     <div class="col-6">
             
-                                        <select  id="role" class="form-control place_holder sel" name="asmsignment">
+                                        <select   class="form-control place_holder sel" name="assignment">
                                             <OPTION> ASSIGNMENNT</OPTION> 
                                             <OPTION> NOT ASSIGN</OPTION>
                                         </select>
@@ -334,11 +328,11 @@
                                     </div>
                                     <div class="col-6">
 
-                                        <select  id="status" class="form-control place_holder sel" name="status">
+                                        <select  id="office" class="form-control place_holder sel" name="status">
                                             <OPTION hidden>OFFICE(s)</OPTION>
-                                            <OPTION value=“value1” > OFFICE 1 </OPTION>
-                                            <OPTION value=“value2” > OFFICE 2 </OPTION>
-                                            <OPTION value=“value3” > OFFICE 3 </OPTION>
+                                            <OPTION> North </OPTION>
+                                            <OPTION> South </OPTION>
+                                           
                                         </select>
                                     </div>
                                 </div>
@@ -353,62 +347,41 @@
 
             <div class="div2" style="padding-top:2vh;">
                 <span>
-                    <!--label class="w3-border lable" style="color: blue; margin-left: 5%; border-style:double; background-color: white; margin-top: 1%;
-                    " id="totalWorkers">TOTAL WORKERS:0</label>
-                    <button class="w3-button w3-section w3-right" style="color: white; background-color:mediumblue; margin-left:57vw;"
-                     onclick="clearSearch()">CLEAR SEARCH</button>
-                    <button class="w3-button w3-section w3-right" style="color: white; background-color:mediumblue; margin-left:1vw;" 
-                    onclick="doClearSearch()">SEARCH</button--->
-
                     <label class="w3-border lable" style="color: blue; margin-left: 5%; border-style:double; 
                     background-color: white; margin-top: 1%; " id="totalWorkers">TOTAL WORKERS:0</label>
                     <button class="w3-button w3-section" style="color: white; background-color:mediumblue; margin-left:57vw;"
                      onclick="clearSearch()">CLEAR SEARCH</button>
                     <button class="w3-button w3-section " style="color: white; background-color:mediumblue; margin-left:1vw;" 
                     onclick="doSearch()">SEARCH</button>
-                    
                 </span>
                <br>
                <br>
 
             </div>
             <br>
-            <div class="div3">
+            <div class="div3" id="divTable">
                 <br><br><br><br><br>
             </div>
         </div>
-        <!-- <script type="text/javascript">
-            $(document).ready(function()
-            {
-                $("#job").on("change",function(e)
-                {
-                    
-                });
-            }); -->
-
-        </script>
     </body>
 
     <script>    
-        //var arr=[];
-        //var avgHeight;
+
         var option1=document.getElementById("option1");
         var option2=document.getElementById("option2");
         var option3=document.getElementById("option3");
         var option4=document.getElementById("option4");
-        //var td2;
-
         
         function selectRole()
         {
-            //var job=document.getElementById("job").value;
-            alert('hello');
-            //var role=document.getElementById("role");
-
+            var job_name=document.getElementById("job").value;
+            alert(job_name);
+            
             $.ajax({
                 url: "ajax-load.php",
                 type : "POST",
-                
+                data :{name:job_name},    
+                //data : 'name=' + job_name,           
                 success : function(data)
                 {
                     debugger
@@ -419,64 +392,54 @@
                     alert("can't do bacause :" + error);
                 }
             });
-            //var height=document.getElementById("h").value;
-            //  if( </?php $job['job_name'] ?>== 1)
-            //  {
-            //      alert('hello arooj');
-            //      option1.innerHTML="CDP";
-            //      option2.innerHTML="CHEF";
-            //      option3.innerHTML="HEAD CHEF";
-            //      option4.innerHTML="SOUS CHEF";   
-            // }
-            
-            // if(job =="Catering")
-            // {
-                
-            //     //<//?php $sql = "SELECT role_name FROM roles WHERE job_id = " . job;
-            //     option1.innerHTML="CDP";
-            //     option2.innerHTML="CHEF";
-            //     option3.innerHTML="HEAD CHEF";
-            //     option4.innerHTML="SOUS CHEF";
-            //     /*role.innerHTML=job;
-            //     role.appendChild(option1);
-            //     role.appendChild(option2);
-            //     role.appendChild(option3);
-            //     role.appendChild(option4);
-            //     //trs.appendChild(td2);
-            //     //tab.appendChild(trs);   */
-            // }
-
-            // else if(job =="Driving")
-            // {
-            //     option1.innerHTML="DRIVER";
-            //     option2.innerHTML="MECHANIC";
-            //     option3.innerHTML="CONDUCTOR";
-            //     option4.innerHTML="PASSENGER";
-                
-            // }
-
-            // else if(job =="Education")
-            // {
-            //     option1.innerHTML="BEHAVIOR SPECIALIST";
-            //     option2.innerHTML="TEACHER";
-            //     option3.innerHTML="TEACHER ASSISTANT";
-            //     option4.innerHTML="TUTOR";
-                
-            // }
-
-            // else if(job =="Warehouse")
-            // {
-            //     option1.innerHTML="MACHINE OPERATOR";
-            //     option2.innerHTML="MANAGER";
-            //     option3.innerHTML="CLERK";
-            //     option4.innerHTML="MATERIAL HANDLLER";
-                
-            // }
-
         }
+
         function doSearch()
         {
-            alert('I"m in doSearch ' )
+
+            alert('I"m in doSearch ')
+            var name=document.getElementById("name").value;
+            var job_name=document.getElementById("job").value;
+            //var x=document.getElementById("job");
+            //var job_name = x.options[x.selectedIndex];
+            var role=document.getElementById("role").value;
+            var status=document.getElementById("status").value;
+            var shift=document.getElementById("shift").value;
+            var type=document.getElementById("type").value;
+            var jobdesc=document.getElementById("jobdesc").value;
+            var keyword=document.getElementById("keyword").value;
+            var distance=document.getElementById("distance").value;
+            var office=document.getElementById("office").value;
+            // alert(name);
+            // alert(job_name);
+            // alert(role);
+            // alert(status);
+            // alert(shift);
+            // alert(type);
+            // alert(jobdesc);
+            // alert(keyword);
+            // alert(distance);
+            // alert(office);
+
+            $.ajax({
+                url: "table.php",
+                type : "POST",
+                data :{name:name, job_name:job_name, role:role, status:status, shift:shift, 
+                        type:type, jobdesc:jobdesc, keyword:keyword, distance:distance, office:office
+                        },    
+                //data : 'name=' + job_name,           
+                success : function(data)
+                {
+                    debugger
+                    $("#divTable").html(data);                      
+                },
+                error:function(request, error)
+                {
+                    alert("can't do bacause :" + error);
+                }
+            });
+     
+
         }
     </script>
 </html>
