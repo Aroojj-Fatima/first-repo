@@ -430,16 +430,79 @@
                 //data : 'name=' + job_name,           
                 success : function(data)
                 {
-                    debugger
-                    $("#divTable").html(data);                      
+                    // if (data.name==='')
+                    // { 
+                    //     tab.innerHTML="No Row Selected";
+                    // }
+                    // debugger
+                    // $("#divTable").html(data);  
+                    var tab=document.getElementById("divTable");
+                    var obj = JSON.parse(data)   
+                    var th1, th2, th3, th4, th5, th6;
+                    var tr1;
+                    var table= document.createElement("table");
+                    tr1=document.createElement("tr");
+                    th1=document.createElement("th");
+                    th2=document.createElement("th");
+                    th3=document.createElement("th");
+                    th4=document.createElement("th");
+                    th5=document.createElement("th");
+                    th6=document.createElement("th");
+                    th7=document.createElement("th");
+                    th1.innerHTML="NAME";
+                    th2.innerHTML="JOB"
+                    th3.innerHTML="ROLE";
+                    th4.innerHTML="STATUS";
+                    th5.innerHTML="OFFICES";
+                    th6.innerHTML="DAYS/NIGHTS";
+                    th7.innerHTML="WORK TYPE";
+                    tr1.appendChild(th1);
+                    tr1.appendChild(th2);
+                    tr1.appendChild(th3);
+                    tr1.appendChild(th4);
+                    tr1.appendChild(th5);
+                    tr1.appendChild(th6);
+                    tr1.appendChild(th7);
+                    table.appendChild(tr1);
+                    for(i in data)
+                    {
+                        var td1, td2, td3, td4, td5, td6;
+                        var tr2;
+                        tr2=document.createElement("tr");
+                        td1=document.createElement("td");
+                        td2=document.createElement("td");
+                        td3=document.createElement("td");
+                        td4=document.createElement("td");
+                        td5=document.createElement("td");
+                        td6=document.createElement("td");
+                        td7=document.createElement("td");
+                        th1.innerHTML=obj.name;
+                        th2.innerHTML=obj.job;
+                        th3.innerHTML=obj.role;
+                        th4.innerHTML=obj.status;
+                        th5.innerHTML=obj.office;
+                        th6.innerHTML=obj.shift;
+                        th7.innerHTML=obj.type;
+                        tr2.appendChild(th1);
+                        tr2.appendChild(th2);
+                        tr2.appendChild(th3);
+                        tr2.appendChild(th4);
+                        tr2.appendChild(th5);
+                        tr2.appendChild(th6);
+                        tr2.appendChild(th7);
+                        table.appendChild(tr2);
+                    }
+                    tab.appendChild(table);            
+                    
+
+
                 },
+
                 error:function(request, error)
                 {
                     alert("can't do bacause :" + error);
                 }
             });
-     
-
         }
     </script>
 </html>

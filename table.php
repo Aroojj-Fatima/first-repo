@@ -13,17 +13,7 @@
         $distance = $_POST['distance'];
         $office = $_POST['office']; 
         $job_id=1;
-        // $name =toString($_POST['name']);
-        // $job_name =toString($_POST['job_name']);
-        // $role = toString($_POST['role']);
-        // $status =toString($_POST['status']);
-        // $shift = toString($_POST['shift']);
-        // $type = toString($_POST['type']);
-        // $jobdesc = toString($_POST['jobdesc']);
-        // $keyword = toString($_POST['keyword']);
-        // $distance = toString($_POST['distance']);
-        // $office = toString($_POST['office']); 
-        // $job_id=1;
+
         if($name==="Catering")
         {
             $job_id=1;
@@ -43,52 +33,44 @@
     }
     
     $conn = mysqli_connect('localhost', 'arooj', '123', 'organization') or die("Connection Failed");
-    // $sql2 = "SELECT emp_name, status_, office, shift, type_ FROM employee WHERE 
-    // emp_name = $name or job_id=$job_id or status_ = $status or shift = $shift or 
-    // type_=$type or job_description=$jobdesc or keywords=$keyword or 
-    // distance=$distance or office=$office" ; 
-    $sql2 = "select e1.*,roles.role_name from (
-        SELECT e2.*,job.job_name from employee e2 inner join job on e2.job_id=job.job_id
-            ) as e1 inner join roles on e1.job_id=roles.job_id
-            WHERE e1.emp_name=$name OR e1.job_name=$job_name OR e1.status_=$status 
-            OR e1.shift=$shift OR e1.type_=$type OR e1.job_description= $jobdesc
-            OR e1.keywords=$keyword OR e1.distance= $distance OR e1.office=$office;"
-
-    //$sql3 = "SELECT job_name from job WHERE job_name= $job_name";
-
-    //$sql4 = "SELECT role_name from roles WHERE job_id=$job_id";
-
-    $result2 = mysqli_query($conn, $sql2) or die("SQL Query Failed.");
-    //$result_jobs = mysqli_query($conn, $sql3) or die("SQL Query Failed.");
-    //$result_role = mysqli_query($conn, $sql4) or die("SQL Query Failed.");
-
-    $output1 = "";
-    //$output2 = "";
-    //$output3 = "";
-    if(mysqli_num_rows ($result2) > 0)
-    {
-        $output1 .='<table> 
-        <tr style="color:white; background-color:blue">
-        <th>Name</th>
-        <th>Status</th>
-        <th>Office</th>
-        <th>Shift</th>
-        <th>Work Type</th> </tr>';
-        while($row = mysqli_fetch_assoc($result2))
-        {
-            $output1 .= "<tr><td> {$row['emp_name']} </td>
-                        <td>{$row['status']}</td>
-                        <td>{$row['office']}</td>
-                        <td>{$row['shift']}</td>
-                        <td>{$row['type']}</td></tr></table>"; 
-        } 
-    }
-
     
-    //$roles = mysqli_fetch_all($result_roles, MYSQLI_ASSOC);
+    $sql = "SELECT employee.emp_name, employee.status_, employee.office, employee.shift,
+            employee.type_, job.job_name, roles.role_name
+            FROM employee
+            INNER JOIN job
+            ON employee.job_id = job.job_id
+            INNER JOIN roles
+            ON employee.role_id = roles.role_id
+            WHERE employee.emp_name = '$name' AND employee.status_ = '$status' AND employee.shift = '$shift'
+             AND job.job_name = '$job_name' AND roles.role_name = '$role'";
 
-    mysqli_free_result($result2);  
+
+    $result = mysqli_query($conn, $sql);
+    $output1 = "";
+
+    $return_arr =  array();
+    //if(mysqli_num_rows ($result) > 0)
+    if($result->num_rows > 0)
+    {
+        
+        while($row = mysqli_fetch_array($result))
+        {
+            $name = $row['emp_name'];
+            $job = $row['job_name'];
+            $status = $row['status_'];
+            $shift = $row['shift'];
+            $role = $row['role_name'];
+            $type = $row['type_'];
+            
+            $return_arr[] = array('name' => $name,'job' => $job, 'status' => $status, 
+            'shift' => $shift, 'role' => $role, 'type' => $type);
+        }    
+        echo json_encode($return_arr);	
+    }
+    else {
+        $return_arr[]=array('name' => '')
+        echo json_encode($return_arr);
+        }
+
     mysqli_close($conn);
-    echo $output1;
-
 ?>
