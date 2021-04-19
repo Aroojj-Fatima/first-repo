@@ -50,9 +50,9 @@
         <script type="test/javascript" 
         src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
         <link href="/static/css/bootstrap.min.css"/>
-        <!--link href="static/css/all.css" rel="stylesheet">
+        <!--link href="static/css/all.css" rel="stylesheet"-->
         <script src="static/js/jquery.min.js"></script>
-        <script src="static/js/bootstrap.min.js"></script--->
+        <!-- <script src="static/js/bootstrap.min.js"></script> -->
         
         <style>
             .divs
@@ -437,7 +437,7 @@
                     // debugger
                     // $("#divTable").html(data);  
                     var tab=document.getElementById("divTable");
-                    var obj = JSON.parse(data)   
+                    var obj = JSON.parse(data) ;  
                     var th1, th2, th3, th4, th5, th6;
                     var tr1;
                     var table= document.createElement("table");
@@ -464,7 +464,7 @@
                     tr1.appendChild(th6);
                     tr1.appendChild(th7);
                     table.appendChild(tr1);
-                    for(i in data)
+                    for(var i=0; i<obj.length; i++)
                     {
                         var td1, td2, td3, td4, td5, td6;
                         var tr2;
@@ -476,13 +476,13 @@
                         td5=document.createElement("td");
                         td6=document.createElement("td");
                         td7=document.createElement("td");
-                        th1.innerHTML=obj.name;
-                        th2.innerHTML=obj.job;
-                        th3.innerHTML=obj.role;
-                        th4.innerHTML=obj.status;
-                        th5.innerHTML=obj.office;
-                        th6.innerHTML=obj.shift;
-                        th7.innerHTML=obj.type;
+                        th1.innerHTML=obj[i].name;
+                        th2.innerHTML=obj[i].job;
+                        th3.innerHTML=obj[i].role;
+                        th4.innerHTML=obj[i].status;
+                        th5.innerHTML=obj[i].office;
+                        th6.innerHTML=obj[i].shift;
+                        th7.innerHTML=obj[i].type;
                         tr2.appendChild(th1);
                         tr2.appendChild(th2);
                         tr2.appendChild(th3);
@@ -493,9 +493,6 @@
                         table.appendChild(tr2);
                     }
                     tab.appendChild(table);            
-                    
-
-
                 },
 
                 error:function(request, error)
